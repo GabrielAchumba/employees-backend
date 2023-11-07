@@ -20,12 +20,13 @@ import { EmailSchedulingModule } from './emailScheduling.module';
   providers: [UserService]
 })
 
+//{ path: `${CONTROLLER}/${GET_USERS}`, method: RequestMethod.GET },
+
 export class UserModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
     consumer.apply(AuthMiddleware)
     .forRoutes(
       { path: `${CONTROLLER}/${GET_USER}`, method: RequestMethod.GET },
-      { path: `${CONTROLLER}/${GET_USERS}`, method: RequestMethod.GET },
       { path: `${CONTROLLER}/${DELETE}`, method: RequestMethod.DELETE },
     )
   }
